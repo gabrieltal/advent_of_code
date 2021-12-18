@@ -12,7 +12,6 @@ class CalculateDepthIncrease
     end
   end
 
-
   def total_depth
     breadth = 0
     depth = 0
