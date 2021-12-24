@@ -34,6 +34,23 @@ class Bingo
     last_drawn * winner.sum_of_unmarked
   end
 
+  def solution_part_2
+    last_solution = nil
+    @data.each do |draw|
+      mark_boards!(draw)
+      check_for_winner!
+
+      if winner?
+        @boards.select(&:won?).each do |winner|
+          last_solution = draw * winner.sum_of_unmarked
+          @boards.delete(winner)
+        end
+      end
+    end
+
+    last_solution
+  end
+
   private
 
   def winner?
@@ -134,4 +151,4 @@ end
 p Bingo.new('drawing.txt', 'boards.txt').solution
 
 # Part 2
-# p Bingo.new('drawing.txt', 'boards.txt').depth_by_aim
+p Bingo.new('drawing.txt', 'boards.txt').solution_part_2
