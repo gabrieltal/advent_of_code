@@ -49,4 +49,3 @@ end
 solution = Solution.new('data.txt')
 p solution.distance_score
 p solution.similarity_score
-# p Engine.new('data.txt').gears.map(&:matching_numbers).sum { |arr| arr[0].value * arr[1].value }
